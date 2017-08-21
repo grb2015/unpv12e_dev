@@ -1,0 +1,2 @@
+gcc daytimetcpsrv.c  ../lib/wrapsock.c   ../lib/wrapunix.c  ../lib/error.c -o serv
+gcc daytimetcpcli.c  ../lib/wrapsock.c   ../lib/wrapunix.c  ../lib/error.c -o cli
