@@ -111,10 +111,11 @@
 #endif
 
 /* The structure returned by recvfrom_flags() */
-struct in_pktinfo {
-  struct in_addr	ipi_addr;	/* dst IPv4 address */
-  int				ipi_ifindex;/* received interface index */
-};
+
+//struct in_pktinfo {
+// struct in_addr	ipi_addr;	/* dst IPv4 address */
+//  int	ipi_ifindex;/* received interface index */
+//};
 /* $$.It in_pktinfo$$ */
 /* $$.Ib ipi_addr$$ */
 /* $$.Ib ipi_ifindex$$ */
@@ -240,8 +241,7 @@ int		 readable_timeo(int, int);
 ssize_t	 readline(int, void *, size_t);
 ssize_t	 readn(int, void *, size_t);
 ssize_t	 read_fd(int, void *, size_t, int *);
-ssize_t	 recvfrom_flags(int, void *, size_t, int *, SA *, socklen_t *,
-		 struct in_pktinfo *);
+ssize_t	 recvfrom_flags(int, void *, size_t, int *, SA *, socklen_t *,struct in_pktinfo *);
 Sigfunc *signal_intr(int, Sigfunc *);
 int		 sock_bind_wild(int, int);
 int		 sock_cmp_addr(const SA *, const SA *, socklen_t);
@@ -350,8 +350,7 @@ struct if_nameindex	*If_nameindex(void);
 char   **My_addrs(int *);
 ssize_t	 Read_fd(int, void *, size_t, int *);
 int		 Readable_timeo(int, int);
-ssize_t	 Recvfrom_flags(int, void *, size_t, int *, SA *, socklen_t *,
-		 struct in_pktinfo *);
+ssize_t	 Recvfrom_flags(int, void *, size_t, int *, SA *, socklen_t *,struct in_pktinfo *);
 Sigfunc *Signal(int, Sigfunc *);
 Sigfunc *Signal_intr(int, Sigfunc *);
 int		 Sock_bind_wild(int, int);
