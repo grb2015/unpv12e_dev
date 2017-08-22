@@ -1,9 +1,22 @@
+/*
+	daytimecli version1  更version0 一样。
+
+	uage:
+		[root@localhost intro]# ./daytimetcpcli1 127.0.0.1
+		Tue Aug 22 09:34:29 2017
+		counter = 1
+		[root@localhost intro]# 
+
+
+
+*/
 #include	"unp.h"
 
 int
 main(int argc, char **argv)
 {
-	int					sockfd, n, counter = 0;
+	int					sockfd, n;
+    int                 counter = 0;        
 	char				recvline[MAXLINE + 1];
 	struct sockaddr_in	servaddr;
 
@@ -23,7 +36,7 @@ main(int argc, char **argv)
 		err_sys("connect error");
 
 	while ( (n = read(sockfd, recvline, MAXLINE)) > 0) {
-		counter++;
+		counter++;      /// what is added in cli1.c     有可能一次读不完，这里统计读了多少次
 		recvline[n] = 0;	/* null terminate */
 		if (fputs(recvline, stdout) == EOF)
 			err_sys("fputs error");
@@ -31,6 +44,6 @@ main(int argc, char **argv)
 	if (n < 0)
 		err_sys("read error");
 
-	printf("counter = %d\n", counter);
+	printf("counter = %d\n", counter);      /// added in cli1.c 
 	exit(0);
 }
