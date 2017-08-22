@@ -1,3 +1,4 @@
+
 #include	"unp.h"
 #include	<time.h>
 
@@ -25,6 +26,8 @@ main(int argc, char **argv)
 
         ticks = time(NULL);
         snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));
+
+        /* 与version0 对比， 这里是一个字节一个字节的写了 */
 		for (i = 0; i < strlen(buff); i++)
         	Write(connfd, &buff[i], 1);
 

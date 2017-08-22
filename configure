@@ -4307,9 +4307,26 @@ fi
 
 LIBFREE_OBJS="$LIBFREE_OBJS inet_ntop.o inet_pton.o"
 
-LIBGAI_OBJS="getaddrinfo.o getnameinfo.o freeaddrinfo.o gai_strerror.o"
+# LIBGAI_OBJS="getaddrinfo.o getnameinfo.o freeaddrinfo.o gai_strerror.o"
+#renbin.guo added
+LIBGAI_OBJS=
+if test "$ac_cv_func_getaddrinfo" = no ; then
+    LIBGAI_OBJS="$LIBGAI_OBJS getaddrinfo.o"
+fi
+if test "$ac_cv_func_getnameinfo" = no ; then
+    LIBGAI_OBJS="$LIBGAI_OBJS getnameinfo.o"
+fi
+if test "$ac_cv_func_freeaddrinfo" = no ; then
+    LIBGAI_OBJS="$LIBGAI_OBJS freeaddrinfo.o"
+fi
+if test "$ac_cv_func_gai_strerror" = no ; then
+    LIBGAI_OBJS="$LIBGAI_OBJS gai_strerror.o"
+fi
 LIBGAI_OBJS="$LIBGAI_OBJS ga_aistruct.o ga_clone.o ga_echeck.o ga_nsearch.o"
 LIBGAI_OBJS="$LIBGAI_OBJS ga_port.o ga_serv.o ga_unix.o gn_ipv46.o"
+
+
+
 
 LIBROUTE_OBJS="get_rtaddrs.o"
 LIBROUTE_OBJS="$LIBROUTE_OBJS if_indextoname.o if_nameindex.o if_nametoindex.o"

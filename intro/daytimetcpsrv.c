@@ -22,6 +22,7 @@ main(int argc, char **argv)
 
 	for ( ; ; ) {
 		connfd = Accept(listenfd, (SA *) NULL, NULL);
+        printf("a tcp client connetct !\n");
 
         ticks = time(NULL);
         snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));

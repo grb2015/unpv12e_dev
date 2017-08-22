@@ -7,6 +7,7 @@
 #ifdef	HAVE_SYS_SYSCTL_H
 #include	<sys/sysctl.h>		/* sysctl() */
 #endif
+#define RTAX_MAX 1024
 
 			/* function prototypes */
 void	 get_rtaddrs(int, struct sockaddr *, struct sockaddr **);

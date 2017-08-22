@@ -29,7 +29,7 @@ LIB_OBJS =  connect_nonb.o connect_timeo.o daemon_inetd.o daemon_init.o dg_cli.o
 LIBFREE_OBJS =  in_cksum.o inet_ntop.o inet_pton.o
 
 # Following are all the object files to create in the libgai/ directory.
-LIBGAI_OBJS = getaddrinfo.o getnameinfo.o freeaddrinfo.o gai_strerror.o ga_aistruct.o ga_clone.o ga_echeck.o ga_nsearch.o ga_port.o ga_serv.o ga_unix.o gn_ipv46.o
+LIBGAI_OBJS =  ga_aistruct.o ga_clone.o ga_echeck.o ga_nsearch.o ga_port.o ga_serv.o ga_unix.o gn_ipv46.o
 
 # Following are all the object files to create in the libroute/ directory.
 LIBROUTE_OBJS = get_rtaddrs.o if_indextoname.o if_nameindex.o if_nametoindex.o net_rt_iflist.o net_rt_dump.o sock_masktop.o
@@ -39,3 +39,4 @@ LIBXTI_OBJS =  wrapxti.o xti_accept.o xti_flags_str.o xti_getopt.o xti_ntop.o xt
 
 CLEANFILES = core core.* *.core *.o temp.* *.out typescript* \
 		*.lc *.lh *.bsdi *.sparc *.uw
+CFLAGS = -g -O2 -D_REENTRANT -Wall -D_GNU_SOURCE

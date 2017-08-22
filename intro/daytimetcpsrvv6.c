@@ -15,7 +15,7 @@ main(int argc, char **argv)
 
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin6_family = AF_INET6;
-	servaddr.sin6_addr   = ipv6addr_any;
+	//servaddr.sin6_addr   = ipv6addr_any;
 	servaddr.sin6_port   = htons(13);	/* daytime server */
 
 	Bind(listenfd, (SA *) &servaddr, sizeof(servaddr));

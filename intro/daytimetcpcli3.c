@@ -1,3 +1,12 @@
+/* 
+ * version3 :
+ *    服务器没变，客户端引入了getsockname 
+ *   [root@localhost intro]# ./daytimetcpcli3 127.0.0.1
+	 local addr: 127.0.0.1.33081
+	 Tue Aug 22 10:23:21 2017
+     [root@localhost intro]#
+ *
+ * */
 #include	"unp.h"
 
 int
@@ -16,7 +25,7 @@ main(int argc, char **argv)
 
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
-	servaddr.sin_port   = htons(13);	/* daytime server */
+	servaddr.sin_port   = htons(9999);	/* daytime server */
 	if (inet_pton(AF_INET, argv[1], &servaddr.sin_addr) <= 0)
 		err_quit("inet_pton error for %s", argv[1]);
 
@@ -24,7 +33,8 @@ main(int argc, char **argv)
 		err_sys("connect error");
 
 	len = sizeof(cliaddr);
-	Getsockname(sockfd, (SA *) &cliaddr, &len);
+
+	Getsockname(sockfd, (SA *) &cliaddr, &len); /* 与verison2 不同之处 */
 	printf("local addr: %s\n",
 		   Sock_ntop((SA *) &cliaddr, sizeof(cliaddr)));
 

@@ -16,15 +16,25 @@ QUICK AND DIRTY
     cd ../libgai   # the getaddrinfo() and getnameinfo() functions
     make
 
-    cd ../libroute # only if your system supports 4.4BSD style routing sockets
+# renbin.guo added linux 下可以不编译这2个
+
+    cd ../libroute # only if your system supports 4.4BSD style routing sockets    
     make           # only if your system supports 4.4BSD style routing sockets
 
     cd ../libxti   # only if your system supports XTI
     make           # only if your system supports XTI
 
+
+# renbin.guo added 开始运行一个实例
+
     cd ../intro    # build and test a basic client program
     make daytimetcpcli
     ./daytimetcpcli 127.0.0.1
+
+
+
+
+
 
 If all that works, you're all set to start compiling individual programs.
 
