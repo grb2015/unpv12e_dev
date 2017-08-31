@@ -39,4 +39,4 @@ LIBXTI_OBJS =  wrapxti.o xti_accept.o xti_flags_str.o xti_getopt.o xti_ntop.o xt
 
 CLEANFILES = core core.* *.core *.o temp.* *.out typescript* \
 		*.lc *.lh *.bsdi *.sparc *.uw
-CFLAGS = -g -O2 -D_REENTRANT -Wall -D_GNU_SOURCE
+CFLAGS = -g -O2 -D_REENTRANT -Wall -D_GNU_SOURCE   #renbin.guo added 2017-09-01
